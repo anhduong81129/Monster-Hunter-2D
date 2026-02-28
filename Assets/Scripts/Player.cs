@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    private SpriteRenderer spriteRenderer;
+
     public Vector2 movementDirection{ get; private set; }
 
     float hInput, vInput;
@@ -19,7 +21,7 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,18 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 rawInput = new Vector2(joystick.Horizontal, joystick.Vertical);
-        movementDirection = rawInput.normalized; 
+        movementDirection = rawInput.normalized;
+
+        // Flip player based on joystick
+        if (joystick.Horizontal > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        
+        else if (joystick.Horizontal < 0)
+        {
+            spriteRenderer.flipX = true; 
+        }
 
         transform.Translate(
             movementDirection.x * moveSpeed * Time.fixedDeltaTime,
