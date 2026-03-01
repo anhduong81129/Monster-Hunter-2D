@@ -9,7 +9,7 @@ public class ScoreUI : MonoBehaviour
     void Start()
     {
         if (player == null)
-            player = FindObjectOfType<Player>();
+            player = FindFirstObjectByType<Player>();
     }
 
     void Update()
