@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 
     public GameObject gameOverPanel;
 
-    private SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer;
 
     public Vector2 movementDirection{ get; private set; }
 
@@ -33,24 +33,22 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 rawInput = new Vector2(joystick.Horizontal, joystick.Vertical);
-        movementDirection = rawInput.normalized;
-
-        // Flip player based on joystick
-        if (joystick.Horizontal > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
-        
-        else if (joystick.Horizontal < 0)
-        {
-            spriteRenderer.flipX = true; 
-        }
+        movementDirection = rawInput.normalized; 
 
         transform.Translate(
             movementDirection.x * moveSpeed * Time.fixedDeltaTime,
             movementDirection.y * moveSpeed * Time.fixedDeltaTime,
             0
         );
+
+        if (joystick.Horizontal > 0)
+    {
+        spriteRenderer.flipX = false; // Turn right
+    }
+    else if (joystick.Horizontal < 0)
+    {
+        spriteRenderer.flipX = true; // Turn left
+    }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
