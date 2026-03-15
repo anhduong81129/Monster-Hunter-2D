@@ -8,7 +8,7 @@ public class MonsterAI : MonoBehaviour
 
     void Start()
     {
-        Player player = FindAnyObjectByType<Player>();
+        Player player = FindObjectOfType<Player>();
         if (player != null)
         {
             playerTarget = player.transform;

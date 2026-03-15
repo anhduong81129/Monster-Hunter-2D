@@ -11,7 +11,7 @@ public class SwordController : MonoBehaviour
 
     void Start()
     {
-        player = FindAnyObjectByType<Player>(); 
+        player = FindObjectOfType<Player>(); 
         if (player == null)
         {
             Debug.LogError("SwordController requires a Player script in the scene.");

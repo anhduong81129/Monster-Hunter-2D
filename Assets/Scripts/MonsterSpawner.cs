@@ -21,7 +21,7 @@ public class MonsterSpawner : MonoBehaviour
         // Safety check to ensure the player reference is set
         if (playerTransform == null)
         {
-            playerTransform = FindAnyObjectByType<Player>().transform;
+            playerTransform = FindObjectOfType<Player>().transform;
         }
 
         // Initialize the timer so the first monster spawns quickly

@@ -8,8 +8,6 @@ public class Player : MonoBehaviour
 
     public GameObject gameOverPanel;
 
-    SpriteRenderer spriteRenderer;
-
     public Vector2 movementDirection{ get; private set; }
 
     float hInput, vInput;
@@ -21,7 +19,7 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -40,15 +38,6 @@ public class Player : MonoBehaviour
             movementDirection.y * moveSpeed * Time.fixedDeltaTime,
             0
         );
-
-        if (joystick.Horizontal > 0)
-    {
-        spriteRenderer.flipX = false; // Turn right
-    }
-    else if (joystick.Horizontal < 0)
-    {
-        spriteRenderer.flipX = true; // Turn left
-    }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
