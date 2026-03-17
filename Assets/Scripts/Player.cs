@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     public void MonsterHit(GameObject monster)
     {
         score += 1;
-        Destroy(monster);
+        monster.SetActive(false); // hide the monster
         Debug.Log("SCORE: " + score);
     }
 }

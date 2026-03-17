@@ -5,7 +5,7 @@ public class PauseManager : MonoBehaviour
 {   
 
     public GameObject pausePanel;
-    private bool isPaused;
+    private bool isPaused = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
